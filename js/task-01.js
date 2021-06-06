@@ -1,12 +1,26 @@
+
 const itemRef = document.querySelectorAll(".item");
 
-console.log(itemRef)
+console.log(`В списке ${itemRef.length} категории.`)
 
 
 
 
-const categoriesRef = document.querySelector("#categories")
+const categoriesRef = [...itemRef]
 
+    .map(
+
+        categories => 
+            `Категория: ${categories.children[0].textContent}
+   Количество злементов: ${categories.children[1].children.length}`
+    
+        )
+
+
+.join("\n");
+    
 console.log(categoriesRef)
+
+
 
 
