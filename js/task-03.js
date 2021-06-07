@@ -15,22 +15,22 @@ const images = [
 
 
 
-const galleryRef = document.querySelector('#gallery');
-
-galleryRef.style.display = "flex";
 
 
-const imageRef = images.map(image => {
-  const itemEl = document.createElement('li');
-
-  itemEl.style.marginRight = "30px";
-  
-
-  itemEl.insertAdjacentHTML('afterbegin', `<img src = '${image.url}' alt = '${image.alt}' />`);
-  return itemEl;
-});
-
-galleryRef.append(...imageRef);
 
 
-console.log(galleryRef);
+const imageRef = images.map(({ url, alt }) =>
+ `<li><img src = "${url}" alt = "${alt}" width = 240> </li>`)
+
+  .join("");
+
+
+const itemRef = document.querySelector("#gallery");
+
+
+
+itemRef.insertAdjacentHTML('afterbegin', imageRef);
+
+
+itemRef.style.display = "flex"
+

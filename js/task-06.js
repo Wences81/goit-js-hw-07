@@ -27,18 +27,25 @@
 
 const inputRef = document.querySelector("#validation-input");
 
+const lengthRef = inputRef.dataset.length;
 
-inputRef.addEventListener("blur", (event) => {
-  if (event.currentTarget.value.length  < 6) {
-    event.currentTarget.classList.add("invalid")
-  } else {
-    if (event.currentTarget.value.length >= 6) {
-      event.currentTarget.classList.remove("invalid");
-      event.currentTarget.classList.add("valid")
-    }
-    }
-    }
-  )
+
+const oninputBlur = (event) => {
+
+  if (event.currentTarget.value.length == lengthRef) {
+    inputRef.classList.add("valid")
+    inputRef.classList.remove("invalid");
+
+  } else if (event.currentTarget.value.length != lengthRef) {
+
+    inputRef.classList.add("invalid")
+    inputRef.classList.remove("valid");
+  }
+};
+
+inputRef.addEventListener("blur", oninputBlur);
+    
+  
 
 
 

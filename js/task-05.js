@@ -2,7 +2,7 @@ let inputRef = document.getElementById("name-input");
 let outputRef = document.getElementById("name-output");
 
 
-inputRef.onchange = () => {
+inputRef.oninput = () => {
     if (inputRef.value === "") {
         outputRef.innerHTML = "незнакомец";
     }
